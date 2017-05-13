@@ -16,7 +16,7 @@ public class MyAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return 6;
+        return 1000;
     }
 
     @Override
@@ -29,9 +29,15 @@ public class MyAdapter extends BaseAdapter{
         return 0;
     }
 
+    // convertView: 历史缓存对象
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        TextView tv = new TextView(mainActivity.getApplicationContext());
+        TextView tv;
+        if (convertView == null) {
+            tv = new TextView(mainActivity.getApplicationContext());
+        } else {
+            tv = (TextView) convertView;
+        }
         tv.setText("test" + position);
         tv.setTextColor(Color.parseColor("#000000"));
         return tv;
