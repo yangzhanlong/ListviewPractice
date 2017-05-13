@@ -1,10 +1,8 @@
 package com.example.user.listviewpractice;
 
-import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
 
 
 public class MyAdapter extends BaseAdapter{
@@ -16,7 +14,7 @@ public class MyAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return 1000;
+        return 6;
     }
 
     @Override
@@ -32,14 +30,12 @@ public class MyAdapter extends BaseAdapter{
     // convertView: 历史缓存对象
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        TextView tv;
+        View view;
         if (convertView == null) {
-            tv = new TextView(mainActivity.getApplicationContext());
+            view = View.inflate(mainActivity.getApplicationContext(), R.layout.item, null);
         } else {
-            tv = (TextView) convertView;
+            view = convertView;
         }
-        tv.setText("test" + position);
-        tv.setTextColor(Color.parseColor("#000000"));
-        return tv;
+        return  view;
     }
 }
